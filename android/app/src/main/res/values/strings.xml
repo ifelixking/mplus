@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">mPlus</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_message">消息</string>
+    <string name="title_contacts">通讯录</string>
+    <string name="title_mine">我</string>
+    <string name="title_activity_login">登录</string>
+    <string name="server_address">10.0.2.2</string>
+
+    <string name="no_pwd">no pwd</string>
+    <string name="had_pwd">had pwd</string>
+    <string name="new_user">new user</string>
+</resources>
