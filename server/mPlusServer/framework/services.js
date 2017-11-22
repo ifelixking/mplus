@@ -101,10 +101,14 @@ var Services = {
 	},
 
 	getFriends: function (userID, func) {
-		db.query("select user.id, if(isnull(user.nikeName), user.mobile, user.nikeName) as name from user left join rel_user on user.id=rel_user.userID2 where rel_user.userID1='" + userID + "'", (err, values, fields) => { 
+		db.query("select user.id, if(isnull(user.nikeName), user.mobile, user.nikeName) as name from user left join rel_user on user.id=rel_user.userID2 where rel_user.userID1='" + userID + "'", (err, values, fields) => {
 			if (err) { func(utils.error, err); return; }
 			func(utils.success, values);
 		})
+	},
+
+	getMessages: function (userID, friendID, func) {
+		db.query("select ")
 	},
 };
 

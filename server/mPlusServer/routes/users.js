@@ -29,7 +29,7 @@ router.post('/addFriend', (req, res, next) => {
 	})
 })
 
-router.get('/friends', (req, res, next) => { 
+router.get('/friends', (req, res, next) => {
 	service.getUserByToken(req.headers['access-token'], (status, user) => {
 		if (!utils.isSuccess(status)) { res.sendError(user); return; }
 		if (user == null) { res.sendError("not login"); return; }
@@ -37,6 +37,14 @@ router.get('/friends', (req, res, next) => {
 	})
 })
 
+router.get('/messages/:friendID', (req, res, next) => {
+	var friendID = req.params.friendID;
+	service.getUserByToken(req.headers['access-token'], (status, user) => {
+		if (!utils.isSuccess(status)) { res.sendError(user); return; }
+		if (user == null) { res.sendError("not login"); return; }
+		service.getMessages(user.id, friendID);
+	})	
+})
 
 
 module.exports = router;
