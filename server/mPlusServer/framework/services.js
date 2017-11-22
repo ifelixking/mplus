@@ -108,7 +108,20 @@ var Services = {
 	},
 
 	getMessages: function (userID, friendID, func) {
-		db.query("select ")
+		db.query("select id, content, senderID, receiverID, createTime from msg where \
+			(senderID='"+ userID + "' AND receiverID='" + friendID + "' AND isSenderDelete=0)\
+			or (senderID='"+ friendID + "' AND receiverID='" + userID + "' AND isReceiverDelete=0)\
+			order by createTime", (err, values, fields) => {
+				if (err) { conn.rollback(() => { throw err; }); }
+				func(utils.success, values);
+			});
+	},
+
+	sendMessage: function (senderID, receiverID, msg, func) {
+		db.query("insert into msg(content, senderID, receiverID, createTime) values('" + msg + "', '" + senderID + "', '" + receiverID + "', now())", (err, result) => {
+			if (err) { conn.rollback(() => { throw err; }); }
+			func(utils.success);
+		})
 	},
 };
 

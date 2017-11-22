@@ -43,8 +43,7 @@ router.get('/messages/:friendID', (req, res, next) => {
 		if (!utils.isSuccess(status)) { res.sendError(user); return; }
 		if (user == null) { res.sendError("not login"); return; }
 		service.getMessages(user.id, friendID);
-	})	
+	})
 })
-
 
 module.exports = router;
