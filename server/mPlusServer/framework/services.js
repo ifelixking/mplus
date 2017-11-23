@@ -108,7 +108,7 @@ var Services = {
 	},
 
 	getMessages: function (userID, friendID, func) {
-		db.query("select id, content, senderID, receiverID, createTime from msg where \
+		db.query("select id, content, if(senderID='"+userID+"', 'true', 'false') as isSend, date_format(createTime, '%Y-%c-%d %h:%i:%s') as createTime from msg where \
 			(senderID='"+ userID + "' AND receiverID='" + friendID + "' AND isSenderDelete=0)\
 			or (senderID='"+ friendID + "' AND receiverID='" + userID + "' AND isReceiverDelete=0)\
 			order by createTime", (err, values, fields) => {

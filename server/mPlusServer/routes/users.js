@@ -8,7 +8,6 @@ router.post('/login', (req, res, next) => {
 	var device = req.body.device;
 	var password = req.body.password;
 	service.login(mobile, device, password, res.sendStatus);
-
 })
 
 router.get('/hasPwd/:mobile', (req, res, next) => {

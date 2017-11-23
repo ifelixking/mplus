@@ -1,8 +1,16 @@
 package com.liyh.mplus;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 
 import java.lang.reflect.Type;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by liyh on 2017/11/10.
@@ -13,7 +21,10 @@ public class Utils {
 	static class Json {
 		private static Gson m_gson;
 		static {
-			m_gson = new Gson();
+			// m_gson = new Gson();
+            m_gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")
+                    // .registerTypeAdapter(Timestamp.class, new TimestampTypeAdapter())
+                    .registerTypeAdapter(java.sql.Date.class, new SQLDateTypeAdapter()).create();
 		}
 		static <T> String serialize(T object) {
 			return m_gson.toJson(object);
@@ -22,6 +33,16 @@ public class Utils {
 		static <T> T deserialize(String jsonString, Type typeOfT){
 			return m_gson.fromJson(jsonString, typeOfT);
 		}
+
+        private static class SQLDateTypeAdapter implements JsonSerializer<Date> {
+            private final DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+            @Override
+            public JsonElement serialize(java.sql.Date src, Type arg1, JsonSerializationContext arg2) {
+                String dateFormatAsString = format.format(new java.sql.Date(src.getTime()));
+                return new JsonPrimitive(dateFormatAsString);
+            }
+        }
 		
 //		static <T> T[] deserialize(JSONArray jsonArray, Class<T> clazz) {
 //			if (jsonArray == null) {

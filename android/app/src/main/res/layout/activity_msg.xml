@@ -8,9 +8,11 @@
 	tools:context="com.liyh.mplus.MsgActivity">
 
 	<ListView
+        android:id="@+id/listView_main"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:layout_weight="1"
+        android:divider="@null"
 		/>
 
 	<ImageView

@@ -123,4 +123,9 @@ class Api {
 		String url = prefix() + "/users/friends";
 		httpGet(url, handler);
 	}
+
+    static void getMessage(long friendID, Handler handler) {
+        String url = prefix() + "/msg/" + friendID;
+        httpGet(url, handler);
+    }
 }

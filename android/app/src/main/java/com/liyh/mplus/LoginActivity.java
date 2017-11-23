@@ -69,7 +69,6 @@ public class LoginActivity extends AppCompatActivity {
 		String password = txtPassword.getText().toString();
 		Api.login(mobile, deviceID, password, new Handler() {
 			public void handleMessage(Message msg) {
-				// Toast.makeText(LoginActivity.this, msg.obj.toString(), Toast.LENGTH_LONG).show();
 				// TODO: 改造
 				if (msg.what == 0) {
 					Result result = Utils.Json.deserialize((String) msg.obj, Result.class);
