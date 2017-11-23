@@ -8,7 +8,6 @@ import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import org.json.JSONObject;
 
 /**
  * Created by liyh on 2017/11/10.
