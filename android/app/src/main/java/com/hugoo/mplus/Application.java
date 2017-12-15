@@ -1,12 +1,10 @@
-package com.liyh.mplus;
+package com.hugoo.mplus;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.telephony.TelephonyManager;
 import android.util.Log;
+
+import cn.jpush.android.api.JPushInterface;
 
 
 /**
@@ -24,6 +22,8 @@ public class Application extends android.app.Application {
         super.onCreate();
         m_instance = this;
         m_context = getApplicationContext();
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
     }
 
     public static Application getInstance(){

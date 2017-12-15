@@ -1,4 +1,4 @@
-package com.liyh.mplus;
+package com.hugoo.mplus;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -17,7 +17,9 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 
-import com.liyh.mplus.data.Result;
+import com.hugoo.mplus.data.Result;
+
+import cn.jpush.android.api.JPushInterface;
 
 public class LoginActivity extends AppCompatActivity {
 	
@@ -73,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
 				if (msg.what == 0) {
 					Result result = Utils.Json.deserialize((String) msg.obj, Result.class);
 					if (result.isSuccess()) {
+						JPushInterface.setAlias(Application.getContext(), 1, "felix");
 						Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 						startActivity(intent);
 					} else {

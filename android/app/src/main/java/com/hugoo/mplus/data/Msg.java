@@ -1,4 +1,4 @@
-package com.liyh.mplus.data;
+package com.hugoo.mplus.data;
 
 import java.util.Date;
 

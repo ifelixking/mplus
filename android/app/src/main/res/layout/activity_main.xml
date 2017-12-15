@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.liyh.mplus.MainActivity">
+    tools:context="com.hugoo.mplus.MainActivity">
 
     <LinearLayout
         android:id="@+id/layout_message"

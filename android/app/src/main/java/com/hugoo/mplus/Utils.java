@@ -1,4 +1,4 @@
-package com.liyh.mplus;
+package com.hugoo.mplus;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

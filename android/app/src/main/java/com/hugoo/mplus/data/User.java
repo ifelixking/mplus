@@ -1,4 +1,4 @@
-package com.liyh.mplus.data;
+package com.hugoo.mplus.data;
 
 /**
  * Created by liyh on 2017/11/12.

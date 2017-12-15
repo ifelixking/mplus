@@ -1,15 +1,11 @@
-package com.liyh.mplus;
+package com.hugoo.mplus;
 
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -23,7 +19,7 @@ import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
 import java.io.UnsupportedEncodingException;
-import com.liyh.mplus.data.Result;
+import com.hugoo.mplus.data.Result;
 
 /**
  * Created by liyh on 2017/11/10.

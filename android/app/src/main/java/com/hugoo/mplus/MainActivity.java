@@ -1,4 +1,4 @@
-package com.liyh.mplus;
+package com.hugoo.mplus;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -19,8 +19,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.gson.reflect.TypeToken;
-import com.liyh.mplus.data.Result;
-import com.liyh.mplus.data.User;
+import com.hugoo.mplus.data.Result;
+import com.hugoo.mplus.data.User;
 
 import java.util.Arrays;
 import java.util.List;
