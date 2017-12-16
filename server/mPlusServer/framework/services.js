@@ -6,7 +6,7 @@ var Services = {
 	login: function (mobile, device, password, func) {
 		if (utils.isNullOrEmpty(mobile)) { func(utils.error, 'mobile is invalid'); return; }
 		if (utils.isNullOrEmpty(device)) { func(utils.error, 'device is invalid'); return; }
-		db.query("select * from user where mobile='" + mobile + "'", (err, values, fields) => {
+		db.query("select cast(id as char) as id, password, device, cast(usercol as char) as usercol  from user where mobile='" + mobile + "'", (err, values, fields) => {
 			if (err) { func(utils.error, err); return; }
 			if (values.length == 1) {
 				var user = values[0];
@@ -43,7 +43,7 @@ var Services = {
 		var token = utils.newGuid();
 		db.query("update user set token='" + token + "', expire=date_add(now(), interval 1 day) where id='" + userID + "'", (err, result) => {
 			if (err) { func(utils.error, err); return; }
-			func(utils.success, token);
+			func(utils.success, { userID, token });
 		});
 	},
 
